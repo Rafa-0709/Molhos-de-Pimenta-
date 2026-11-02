@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Danadinha · Molhos artesanais</title>
+<style>
+:root{--bg:#fff8ee;--surface:#ffffff;--ink:#2b1a14;--muted:#6f5a50;--red:#c8321e;--red-ink:#ffffff;--honey:#e9a526;--bacon:#7a3b24;--line:#ecd9c3;--hero:#c8321e;--hero-ink:#fff8ee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1210;--surface:#2a1c18;--ink:#fbeede;--muted:#c9b3a4;--red:#ee5a40;--red-ink:#1c1210;--honey:#f0b43c;--bacon:#d98b66;--line:#46302a;--hero:#8f2415;--hero-ink:#fff3e2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1c1210;--surface:#2a1c18;--ink:#fbeede;--muted:#c9b3a4;--red:#ee5a40;--red-ink:#1c1210;--honey:#f0b43c;--bacon:#d98b66;--line:#46302a;--hero:#8f2415;--hero-ink:#fff3e2;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:10}
+h1,h2,h3,.brand,nav button,.btn,.tag{font-family:"Trebuchet MS",Verdana,sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--surface);border-bottom:1px solid var(--line);z-index:9}
+.bar{max-width:960px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-size:1.5rem;font-weight:800;color:var(--red);letter-spacing:.5px}
+.brand small{display:block;font-size:.7rem;font-weight:400;color:var(--muted);letter-spacing:1px}
+nav{display:flex;gap:6px}
+nav button{background:none;border:2px solid transparent;color:var(--ink);padding:8px 16px;border-radius:999px;font-size:.95rem;font-weight:700;cursor:pointer}
+nav button[aria-current="page"]{border-color:var(--red);color:var(--red)}
+main{max-width:960px;margin:0 auto;padding:0 20px 40px}
+section[hidden]{display:none}
+.hero{background:var(--hero);color:var(--hero-ink);border-radius:0 0 28px 28px;margin:0 -20px;padding:56px 28px;text-align:center}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;margin:0 0 12px}
+.hero p{max-width:560px;margin:0 auto 22px;font-size:1.1rem}
+.btn{display:inline-block;background:var(--honey);color:#2b1a14;border:0;padding:12px 24px;border-radius:999px;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none}
+h2{font-size:1.6rem;margin:44px 0 12px;color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{margin:6px 0;font-size:1.15rem}
+.card p{margin:0;color:var(--muted)}
+.ico{font-size:2rem}
+.quote{background:var(--surface);border-left:6px solid var(--honey);border-radius:12px;padding:18px 22px;font-size:1.25rem;font-style:italic;margin:28px 0}
+.quote span{display:block;font-size:.9rem;font-style:normal;color:var(--muted);margin-top:6px}
+.prod{display:flex;flex-direction:column;gap:8px}
+.jar{height:150px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:4rem}
+.bacon .jar{background:linear-gradient(135deg,#a8452a,#7a3b24)}
+.mel .jar{background:linear-gradient(135deg,#f3b93a,#d98a12)}
+.alho .jar{background:linear-gradient(135deg,#e9e2cf,#b9ad8c);filter:grayscale(.2)}
+.price{font-family:"Trebuchet MS",Verdana,sans-serif;font-weight:800;font-size:1.3rem}
+.tag{display:inline-block;align-self:flex-start;background:var(--honey);color:#2b1a14;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+.soon{border-style:dashed}
+.soon .btn{background:transparent;border:2px solid var(--red);color:var(--red)}
+.btn.buy{background:var(--red);color:var(--red-ink)}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:32px 20px}
+.foot{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.foot h3{margin:0 0 6px;color:var(--red)}
+.foot p{margin:2px 0;color:var(--muted)}
+.copy{max-width:960px;margin:20px auto 0;color:var(--muted);font-size:.85rem}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:12px;font-family:"Trebuchet MS",Verdana,sans-serif;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90%;text-align:center}
+#toast.on{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">DANADINHA<small>MOLHOS DE PIMENTA ARTESANAIS</small></div>
+    <nav>
+      <button data-tab="inicio">Início</button>
+      <button data-tab="catalogo">Catálogo</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="inicio">
+  <div class="hero">
+    <h1>Essa é danadinha mesmo! 🌶️</h1>
+    <p>Molhos de pimenta com sabor de casa, feitos com ingredientes naturais e muito capricho.</p>
+    <a class="btn" href="#catalogo" data-go="catalogo">Ver os molhos</a>
+  </div>
+
+  <h2>Quem é a Danadinha</h2>
+  <p>A Danadinha nasceu na cozinha, do gosto por cozinhar e de querer na mesa um molho de verdade: do jeito caseiro, sem atalhos. Cada lote é feito em pequena escala, com ingredientes naturais escolhidos com cuidado, para que cada colherada tenha aquele sabor que lembra comida feita com carinho.</p>
+
+  <div class="quote">“Essa é danadinha mesmo!”<span>O nome virou bordão: é o que a gente diz quando o sabor surpreende.</span></div>
+
+  <h2>O que nos move</h2>
+  <div class="grid">
+    <div class="card"><div class="ico">⭐</div><h3>Qualidade acima do lucro</h3><p>Nunca trocamos um ingrediente bom por um mais barato. Se for para escolher, a qualidade vence.</p></div>
+    <div class="card"><div class="ico">🏡</div><h3>Sabor caseiro</h3><p>Receitas feitas como em casa, com ingredientes naturais e o ponto certo de picância.</p></div>
+    <div class="card"><div class="ico">❤️</div><h3>Amor pela culinária</h3><p>Cozinhar é nossa paixão, e cada frasco leva um pouco dela até a sua mesa.</p></div>
+  </div>
+
+  <h2>Nossa identidade</h2>
+  <p>Somos uma marca bem-humorada, calorosa e sem frescura. A Danadinha é aquela pimenta que dá um sorriso de canto: picante na medida, saborosa de verdade e sempre com a cara da cozinha de casa.</p>
+</section>
+
+<section id="catalogo" hidden>
+  <div class="hero">
+    <h1>Nossos molhos</h1>
+    <p>Dois sabores que já conquistaram a mesa, e um novo vindo aí.</p>
+  </div>
+
+  <h2>Disponíveis agora</h2>
+  <div class="grid">
+    <article class="card prod bacon">
+      <div class="jar">🥓</div>
+      <h3>Pimenta com Bacon</h3>
+      <p>Defumado, intenso e cheio de sabor. Perfeito para carnes, lanches e ovos.</p>
+      <div class="price">R$ 00,00 <small style="font-weight:400;color:var(--muted)">· 200 ml</small></div>
+      <button class="btn buy" data-buy="Pimenta com Bacon">Comprar</button>
+    </article>
+    <article class="card prod mel">
+      <div class="jar">🍯</div>
+      <h3>Pimenta com Mel</h3>
+      <p>Doce na entrada e picante no final. Ótimo com queijos, frango e pizzas.</p>
+      <div class="price">R$ 00,00 <small style="font-weight:400;color:var(--muted)">· 200 ml</small></div>
+      <button class="btn buy" data-buy="Pimenta com Mel">Comprar</button>
+    </article>
+  </div>
+
+  <h2>Em breve</h2>
+  <div class="grid">
+    <article class="card prod alho soon">
+      <div class="jar">🧄</div>
+      <span class="tag">PRÓXIMO LANÇAMENTO</span>
+      <h3>Molho de Alho</h3>
+      <p>Cremoso, aromático e com o toque caseiro da Danadinha. Quer ser avisado quando chegar?</p>
+      <button class="btn" data-buy="aviso do Molho de Alho">Quero ser avisado</button>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer id="contato">
+  <div class="foot">
+    <div><h3>Danadinha</h3><p>Molhos artesanais com sabor caseiro.</p></div>
+    <div><h3>Contato</h3><p>📞 (00) 00000-0000</p><p>✉️ contato@danadinha.com.br</p></div>
+    <div><h3>Onde estamos</h3><p>Rua Exemplo, 000 · Cidade, UF</p><p>📷 @danadinha</p></div>
+  </div>
+  <div class="copy">© 2026 Danadinha. Todos os direitos reservados. · Esboço do site</div>
+</footer>
+
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+  var tabs=['inicio','catalogo'];
+  function show(){
+    var h=(location.hash||'').replace('#','');
+    if(tabs.indexOf(h)<0)h='inicio';
+    tabs.forEach(function(t){
+      document.getElementById(t).hidden=(t!==h);
+    });
+    document.querySelectorAll('nav button').forEach(function(b){
+      if(b.dataset.tab===h)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+    });
+    window.scrollTo(0,0);
+  }
+  function go(t){location.hash=t;}
+  document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){go(b.dataset.tab);};});
+  document.querySelectorAll('[data-go]').forEach(function(a){a.onclick=function(e){e.preventDefault();go(a.dataset.go);};});
+  var toast=document.getElementById('toast'),tm;
+  document.querySelectorAll('[data-buy]').forEach(function(b){
+    b.onclick=function(){
+      toast.textContent='Esboço: aqui entraria o link de compra (' + b.dataset.buy + ').';
+      toast.classList.add('on');clearTimeout(tm);
+      tm=setTimeout(function(){toast.classList.remove('on');},2600);
+    };
+  });
+  window.addEventListener('hashchange',show);
+  show();
+})();
+</script>
+</body>
+</html>
